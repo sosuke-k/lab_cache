@@ -6,6 +6,7 @@ gem 'jazz_hands'
 gem 'nokogiri'
 gem 'fastimage'
 gem 'ruby-filemagic'
+gem 'ruby-readability'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'

@@ -23,16 +23,49 @@ class ItemsController < ApplicationController
 
   # POST /items
   # POST /items.json
+  # def create
+  #   @item = Item.new(item_params)
+
+  #   respond_to do |format|
+  #     if @item.save
+  #       format.html { redirect_to @item, notice: 'Item was successfully created.' }
+  #       format.json { render action: 'show', status: :created, location: @item }
+  #     else
+  #       format.html { render action: 'new' }
+  #       format.json { render json: @item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
   def create
-    @item = Item.new(item_params)
+    require 'open-uri'
+    source = open(params[:url]).read
+    obj = Readability::Document.new(source)
+
+    title = obj.title
+    content_html = obj.content.encode('UTF-8')
+    images = obj.images
+
+    @item = Item.new({
+      title: title,
+      url: params[:url],
+      content: content_html,
+      first_image_url: images[0],
+    })
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @item }
+        format.json {
+          render json: {
+            action: 'add',
+            result: 'success',
+            user: 'user',
+            micropost_id: 1,
+            content_html: content_html
+          }
+        }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.json { render json: @sample.errors, status: :unprocessable_entity }
       end
     end
   end
