@@ -1,35 +1,21 @@
-<h1>Listing items</h1>
-
-<!-- <table> -->
-  <!-- <h3ead> -->
-    <!-- <tr> -->
-    <!-- </tr> -->
-  <!-- </h3ead> -->
-
-  <!-- <tbody> -->
-    <% @items.each do |item| %>
-      <!-- <tr> -->
-      <h3>Title</h3>
-        <p><%= item.title %></p>
-      <h3>First image url</h3>
-        <p><%= item.first_image_url %></p>
-      <h3>User</h3>
-        <p><%= item.user.last_name %></p>
-      <h3>Name</h3>
-        <p><%= item.name %></p>
+<div class='row'>
+  <h1>Listing items</h1>
+  <% @items.each do |item| %>
+    <h3>Title</h3>
+      <p><%= link_to item.title, (extract_url item.url) %></p>
+    <h3>First image url</h3>
+      <p><%= image_tag item.first_image_url, size: '200' %></p>
+    <h3>User</h3>
+      <p><%= item.user.last_name %></p>
+    <div id="content">
       <h3>Content</h3>
-        <p width='200'><%= item.content %></p>
-      <h3>Deleted at</h3>
-        <p><%= item.deleted_at %></p>
-        <p><%= link_to 'Show', item %></p>
-        <p><%= link_to 'Edit', edit_item_path(item) %></p>
-        <p><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      <!-- </tr> -->
-      <hr>
-    <% end %>
-  <!-- </tbody> -->
-<!-- </table> -->
-
-<br>
-
-<%= link_to 'New Item', new_item_path %>
+      <p> <%= raw item.content.truncate(300) %> </p>
+    </div>
+    <h3>Deleted at</h3>
+      <p><%= item.deleted_at %></p>
+      <p><%= link_to 'Show', item %></p>
+      <p><%= link_to 'Edit', edit_item_path(item) %></p>
+      <p><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <hr>
+  <% end %>
+</div>
