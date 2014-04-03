@@ -1,5 +1,5 @@
 LabCache::Application.routes.draw do
-  # resources :items
+  resources :items
   post 'item/create' => 'items#create'
 
   # The priority is based upon order of creation: first created -> highest priority.

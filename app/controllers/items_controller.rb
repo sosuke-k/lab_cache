@@ -51,6 +51,7 @@ class ItemsController < ApplicationController
       url: params[:url],
       content: content_html,
       first_image_url: images[0],
+      user_id: User.find_by(last_name: params[:user][:last_name]).id
     })
 
     respond_to do |format|
