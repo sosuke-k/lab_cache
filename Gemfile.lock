@@ -29,6 +29,9 @@ GEM
     arel (4.0.2)
     atomic (1.1.16)
     awesome_print (1.2.0)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
@@ -55,6 +58,9 @@ GEM
     execjs (2.0.2)
     fastimage (1.6.1)
       addressable (~> 2.3, >= 2.3.5)
+    foundation-rails (5.2.1.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -120,6 +126,7 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroady (1.1.1)
     rails (4.0.4)
       actionmailer (= 4.0.4)
       actionpack (= 4.0.4)
@@ -179,13 +186,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   coffee-rails (~> 4.0.0)
   fastimage
+  foundation-rails
   jazz_hands
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
   nokogiri
+  railroady
   rails (= 4.0.4)
   ruby-filemagic
   ruby-readability

@@ -10,4 +10,17 @@
  *
  *= require_self
  *= require_tree .
+ *= require foundation
  */
+* {
+  font-weight: 100!important;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  background-color: rgb(13, 177, 211);
+  color: #fff!important;
+  text-align: center;
+  border-radius: 10px;
+  letter-spacing: 10px;
+}

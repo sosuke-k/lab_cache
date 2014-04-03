@@ -7,6 +7,8 @@ gem 'nokogiri'
 gem 'fastimage'
 gem 'ruby-filemagic'
 gem 'ruby-readability'
+gem 'railroady'
+gem 'foundation-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -34,6 +36,14 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+group :development do
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
