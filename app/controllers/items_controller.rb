@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   def create
     require 'open-uri'
     source = open(params[:url]).read
-    obj = Readability::Document.new(source)
+    obj = Readability::Document.new(source, encoding: 'utf-8')
 
     title = obj.title
     content_html = obj.content.encode('UTF-8')
