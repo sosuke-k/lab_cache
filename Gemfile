@@ -8,7 +8,7 @@ gem 'fastimage'
 gem 'ruby-filemagic'
 gem 'ruby-readability'
 gem 'railroady'
-gem 'foundation-rails'
+# gem 'foundation-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -18,6 +18,7 @@ gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
+gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

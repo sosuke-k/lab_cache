@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
     content_html = obj.content.encode('UTF-8')
     images = obj.images
 
+
     @item = Item.new({
       title: title,
       url: params[:url],

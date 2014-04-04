@@ -1,21 +1,19 @@
-<div class='row'>
-  <h1>Listing items</h1>
+<nav class='top-bar' data-topbar>
+  <h1>Quiche</h1>
+</nav>
+<div class='contents'>
   <% @items.each do |item| %>
-    <h3>Title</h3>
-      <p><%= link_to item.title, (extract_url item.url) %></p>
-    <h3>First image url</h3>
-      <p><%= image_tag item.first_image_url, size: '200' %></p>
-    <h3>User</h3>
-      <p><%= item.user.last_name %></p>
-    <div id="content">
-      <h3>Content</h3>
-      <p> <%= raw item.content.truncate(300) %> </p>
+    <div class='row'>
+      <div class='columns column_left'>
+        <p class='user_icon'><%= image_tag item.user.image_url, size: '30' %></p>
+        <%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %></td>
+      </div>
+      <div class='columns column_right'>
+        <h3><%= link_to item.title.truncate(40), (extract_url item.url) %></h3>
+        <p class='thumbnail'><%= image_tag item.first_image_url, width: '200' %></p>
+        <div class='content'>
+          <p> <%= raw (item.content.gsub(/<div>/,'').gsub(/<\/div>/,'').gsub(/ ?/,'').gsub(/\n/,'').truncate(300)) %> </p>
+        </div>
+      </div>
     </div>
-    <h3>Deleted at</h3>
-      <p><%= item.deleted_at %></p>
-      <p><%= link_to 'Show', item %></p>
-      <p><%= link_to 'Edit', edit_item_path(item) %></p>
-      <p><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    <hr>
-  <% end %>
-</div>
+  <% end %></div>

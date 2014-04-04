@@ -10,17 +10,71 @@
  *
  *= require_self
  *= require_tree .
- *= require foundation
  */
-* {
-  font-weight: 100!important;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+ @import "compass/reset";
+
+ * {
+  font-weight: 100;
+  // font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: 'mplus-1c-thin';
 }
 
-h3 {
-  background-color: rgb(13, 177, 211);
-  color: #fff!important;
-  text-align: center;
-  border-radius: 10px;
-  letter-spacing: 10px;
+.user_icon img {
+  border-radius: 50%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+nav {
+  background: #333;
+  h1 {
+    color: #fff;
+    font-size: 30px;
+    margin: 0;
+    font-family: 'mplus-1c-thin';
+  }
+}
+.contents {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 1000px;
+  h3 {
+    font-size: 20px;
+    a {
+      font-weight: 100;
+      font-family: 'mplus-1m-light';
+      color: rgb(13, 177, 211);
+      font-size: 20px;
+      text-align: center;
+      border-radius: 10px;
+      letter-spacing: 2px;
+    }
+  }
+  .row {
+    margin: 20px auto;
+    width: 100%;
+    float: left;
+    clear: both;
+    .column_left {
+      float: left;
+      width: 20%;
+    }
+    .column_right {
+      float: right;
+      width: 80%;
+      .thumbnail {
+        float: left;
+      }
+      .content {
+        width: 500px;
+        margin: 20px;
+        font-family: sans-serif;
+        font-weight: 100;
+        font-size: 14px;
+        float: left;
+      }
+    }
+  }
 }
