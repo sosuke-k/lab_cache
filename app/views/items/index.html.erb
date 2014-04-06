@@ -16,7 +16,7 @@
         <h3><span class='truncate'><%= link_to item.title.truncate(80), (extract_url item.url) %></span></h3>
         <p class='thumbnail'><%= image_tag item.first_image_url, width: '100%' %></p>
         <div class='content'>
-          <p> <%= raw (item.content.gsub('&#13;', '').gsub(/<div>/,'').gsub(/<\/div>/,'').gsub(/ ?/,'').gsub(/\n/,'').gsub(/\t/,'').gsub(/<p> <\/p>/,'').truncate(200)) %> </p>
+          <p> <%= raw (re_arrange item.content) %> </p>
         </div>
       </div>
     </div>

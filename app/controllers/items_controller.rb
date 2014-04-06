@@ -76,9 +76,8 @@ class ItemsController < ApplicationController
           render json: {
             action: 'add',
             result: 'success',
-            user: 'user',
-            micropost_id: 1,
-            content_html: content_html
+            content_html: re_arrange(content_html),
+            first_image_url: @item.first_image_url
           }
         }
       else
