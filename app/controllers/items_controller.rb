@@ -39,15 +39,21 @@ class ItemsController < ApplicationController
 
   def create
     require 'open-uri'
-    source = open(params[:url]).read
+    uri = URI params[:url]
+    source = open(uri).read
     obj = Readability::Document.new(source, encoding: 'utf-8')
 
     title = obj.title
     content_html = obj.content.encode('UTF-8')
     images = obj.images
 
+    if ( images !=~ /^http/ )
+      images[0] = 'http://' + uri.host + images[0]
+    end
+
     twitter_id = params[:user][:quiche_twitter_id]
     image_url = params[:user][:quiche_twitter_image_url]
+
 
     if ( User.find_by(twitter_id: twitter_id) == nil )
       User.create({
