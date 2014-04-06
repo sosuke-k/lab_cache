@@ -11,19 +11,23 @@
  *= require_self
  *= require_tree .
  */
- @import "compass/reset";
+ @import 'compass/reset';
 
  @import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
  @font-face {
-  font-family: "mplus-1c-thin";
-  src: url(http://l0o0l.info/material/fonts/mplus-1c-thin.ttf) format("opentype");
+  font-family: 'mplus-1c-thin';
+  src: url(http://l0o0l.info/material/fonts/mplus-1c-thin.ttf) format('opentype');
+ }
+ @font-face {
+  font-family: 'mplus-1c-light';
+  src: url(http://l0o0l.info/material/fonts/mplus-1c-light.ttf) format('opentype');
  }
 
  $user_color: #660;
 
  * {
   font-weight: 100;
-  // font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  // font-family: 'Helvetica', Helvetica, Arial, sans-serif;
   font-family: 'mplus-1c-thin';
 }
 
@@ -115,7 +119,6 @@ body {
           white-space: nowrap;
           overflow: hidden;
           a {
-            font-weight: 100;
             font-family: 'mplus-1c-light';
             color: rgb(13, 177, 211);
             font-size: 20px;
