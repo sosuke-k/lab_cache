@@ -75,7 +75,7 @@ body {
           font-size: 40px;
           color: #660;
           border-top: 1px solid #990;
-          margin-right: 6px;
+          margin-right: -52px;
         }
       }
       .column_left {
@@ -87,14 +87,16 @@ body {
           content: '';
           position: absolute;
           left: 15px;
-          top: 35px;
+          top: 34px;
           border-left: 1px solid $user_color;
-          height: 100%;
+          height: 101%;
         }
         .user_icon {
-          margin: -2px;
+          margin: -4px;
           img{
-            border: 2px solid $user_color;
+            border: 1px solid $user_color;
+            padding: 3px;
+            background: #fff;
           }
         }
       }
