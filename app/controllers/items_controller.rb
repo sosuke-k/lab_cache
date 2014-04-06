@@ -46,13 +46,22 @@ class ItemsController < ApplicationController
     content_html = obj.content.encode('UTF-8')
     images = obj.images
 
+    twitter_id = params[:user][:quiche_twitter_id]
+    image_url = params[:user][:quiche_twitter_image_url]
+
+    if ( User.find_by(twitter_id: twitter_id) == nil )
+      User.create({
+        twitter_id: twitter_id,
+        image_url: image_url
+        })
+    end
 
     @item = Item.new({
       title: title,
       url: params[:url],
       content: content_html,
       first_image_url: images[0],
-      user_id: User.find_by(last_name: params[:user][:last_name]).id
+      user_id: User.find_by(twitter_id: twitter_id).id
     })
 
     respond_to do |format|
@@ -67,7 +76,7 @@ class ItemsController < ApplicationController
           }
         }
       else
-        format.json { render json: @sample.errors, status: :unprocessable_entity }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end
