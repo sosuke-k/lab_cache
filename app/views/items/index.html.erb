@@ -1,5 +1,9 @@
 <nav class='top-bar' data-topbar>
   <h1>Quiche</h1>
+  <form action='/items'method='get'>
+    <input name='query' type='text'></input>
+    <button tyep='submit'>Search</button>
+  </form>
 </nav>
 <div class='contents'>
   <% @items.each do |item| %>

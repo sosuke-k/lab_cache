@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+# Use Solr
+gem 'sunspot_rails', '2.1.0'
+gem 'sunspot_solr',	'2.1.0'
+gem 'sunspot', '2.1.0'
+gem 'progress_bar', '1.0.0'
 
 gem 'spring'
 gem 'jazz_hands'
@@ -14,6 +19,7 @@ gem 'rails', '4.0.4'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

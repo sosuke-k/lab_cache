@@ -14,3 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore all sunspot files.
+/solr
+/config/sunspot.yml
+
+# Ignore database settings
+/config/database.yml
+/db/schema.rb
+/db/seeds.rb

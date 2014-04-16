@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140406101421) do
     t.text     "url"
   end
 
-  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "last_name"

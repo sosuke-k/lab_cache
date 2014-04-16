@@ -4,7 +4,10 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    result = Item.search do
+      fulltext params[:query]
+    end
+    @items = result.results
   end
 
   # GET /items/1
