@@ -103,6 +103,7 @@ GEM
     mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.9.2)
+    mysql2 (0.3.15)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     options (2.3.2)
@@ -216,6 +217,7 @@ DEPENDENCIES
   jazz_hands
   jbuilder (~> 1.2)
   jquery-rails
+  mysql2
   nokogiri
   progress_bar (= 1.0.0)
   railroady

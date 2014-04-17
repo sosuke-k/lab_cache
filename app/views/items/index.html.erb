@@ -1,9 +1,11 @@
 <nav class='top-bar' data-topbar>
-  <h1>Quiche</h1>
-  <form action='/items'method='get'>
-    <input name='query' type='text'></input>
-    <button tyep='submit'>Search</button>
-  </form>
+  <header>
+    <h1>Quiche</h1>
+    <form action='/items'method='get'>
+      <input id='search_text' name='query' type='text'></input>
+      <input id='search_button' type='image' src='svg/search.svg'></input>
+    </form>
+  </header>
 </nav>
 <div class='contents'>
   <% @items.each do |item| %>
@@ -13,7 +15,7 @@
         <p class='time'> <%= item.created_at.strftime('%H:%M') %> </p>
       </div>
       <div class='columns column_left'>
-        <p class='user_icon'><%= image_tag item.user.image_url, size: '30' %></p>
+        <p class='user_icon'><%#= image_tag item.user.image_url, size: '30' %></p>
         <!-- <%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %> -->
       </div>
       <div class='columns column_right'>

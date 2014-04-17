@@ -50,20 +50,36 @@ body {
     z-index: 5;
     background-color: #1c1c1c;
     background-image: url(http://www.transparenttextures.com/patterns/green-fibers.png);
-    h1 {
-      color: #fff;
-      font-size: 30px;
-      padding: 10px;
-      font-family: 'mplus-1c-thin';
+    header {
       width: 1000px;
       margin: auto;
-    }
-    form {
-      input {
-
+      h1 {
+        float: left;
+        color: #fff;
+        font-size: 30px;
+        padding: 10px;
+        font-family: 'mplus-1c-thin';
       }
-      button {
-
+      form {
+        float: right;
+        position: relative;
+        margin: 10px;
+        input {
+          height: 22px;
+          padding: 4px;
+          background-color: #fafbff;
+          background-image: url(http://www.transparenttextures.com/patterns/asfalt-dark.png);
+        }
+        input#search_text {
+          width: 182px;
+          border: none;
+        }
+        input#search_button {
+          position: absolute;
+          top: 0;
+          _top: 1px;
+          left: 190px;
+        }
       }
     }
   }
