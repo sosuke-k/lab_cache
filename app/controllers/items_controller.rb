@@ -48,7 +48,9 @@ class ItemsController < ApplicationController
     content_html = obj.content.encode('UTF-8')
     images = obj.images
 
-    if ( (images[0] =~ /^http/) != 0)
+    if  ( (images[0] =~ /^\//) == 0) # relative path
+      images[0] = 'http://' + uri.host + images[0]
+    elsif ( (images[0] =~ /^http/) != 0) # filename only
       images[0] = 'http://' + uri.host + uri.path + images[0]
     end
 
