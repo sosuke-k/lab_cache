@@ -1,0 +1,155 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ @import 'compass/reset';
+
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+ @font-face {
+  font-family: 'mplus-1c-thin';
+  src: url(http://l0o0l.info/material/fonts/mplus-1c-thin.ttf) format('opentype');
+ }
+ @font-face {
+  font-family: 'mplus-1c-light';
+  src: url(http://l0o0l.info/material/fonts/mplus-1c-light.ttf) format('opentype');
+ }
+
+ $user_color: #660;
+
+ * {
+  font-weight: 100;
+  // font-family: 'Helvetica', Helvetica, Arial, sans-serif;
+  font-family: 'mplus-1c-thin';
+}
+
+.user_icon img {
+  border-radius: 50%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+body {
+  background-color: #ffffff;
+  background-image: url(http://www.transparenttextures.com/patterns/white-tiles.png);
+  background-attachment: fixed;
+  nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    background-color: #1c1c1c;
+    background-image: url(http://www.transparenttextures.com/patterns/green-fibers.png);
+    h1 {
+      color: #fff;
+      font-size: 30px;
+      padding: 10px;
+      font-family: 'mplus-1c-thin';
+      width: 1000px;
+      margin: auto;
+    }
+  }
+  .contents {
+    margin: 70px auto;
+  // width: 80%;
+  // max-width: 1000px;
+    width: 1000px;
+    .row {
+      margin: 20px auto;
+      width: 100%;
+      float: left;
+      clear: both;
+      height: 150px;
+      .column_date {
+        width: 14%;
+        float: left;
+        margin-top: -2px;
+        .date {
+          font-family: 'Open Sans', sans-serif;
+          font-size: 14px;
+          color: #cc0;
+          line-height: 17px;
+        }
+        .time {
+          font-family: 'mplus-1c-thin';
+          font-size: 40px;
+          color: #660;
+          border-top: 1px solid #990;
+          margin-right: -52px;
+        }
+      }
+      .column_left {
+        float: left;
+        width: 6%;
+        position: relative;
+        height: 150px;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 15px;
+          top: 34px;
+          border-left: 1px solid $user_color;
+          height: 101%;
+        }
+        .user_icon {
+          margin: -4px;
+          img{
+            border: 1px solid $user_color;
+            padding: 3px;
+            background: #fff;
+          }
+        }
+      }
+      .column_right {
+        float: right;
+        width: 80%;
+        margin-top: 3px;
+        h3 {
+          font-size: 20px;
+          white-space: nowrap;
+          overflow: hidden;
+          a {
+            font-family: 'mplus-1c-light';
+            color: rgb(13, 177, 211);
+            font-size: 20px;
+            text-align: center;
+            border-radius: 10px;
+            letter-spacing: 2px;
+            text-decoration: none;
+          }
+        }
+        .thumbnail {
+          margin: 18px 1%;
+          float: left;
+          width: 18%;
+          img {
+            border-radius: 10px;
+          }
+        }
+        .content {
+          width: 76%;
+          margin: 2%;
+          font-family: sans-serif;
+          font-weight: 100;
+          font-size: 14px;
+          float: left;
+          line-height: 20px;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+  .truncate {
+    word-break: break-all;
+  }
+}

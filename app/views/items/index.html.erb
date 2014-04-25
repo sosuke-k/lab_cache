@@ -1,0 +1,23 @@
+<nav class='top-bar' data-topbar>
+  <h1>Quiche</h1>
+</nav>
+<div class='contents'>
+  <% @items.each do |item| %>
+    <div class='row'>
+      <div class='columns column_date'>
+        <p class='date'> <%= item.created_at.strftime('%Y/%m/%d') %> </p>
+        <p class='time'> <%= item.created_at.strftime('%H:%M') %> </p>
+      </div>
+      <div class='columns column_left'>
+        <p class='user_icon'><%= image_tag item.user.image_url, size: '30' %></p>
+        <!-- <%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %> -->
+      </div>
+      <div class='columns column_right'>
+        <h3><span class='truncate'><%= link_to item.title.truncate(80), (extract_url item.url) %></span></h3>
+        <p class='thumbnail'><%= image_tag item.first_image_url, width: '100%' %></p>
+        <div class='content'>
+          <p> <%= raw (item.content.gsub('&#13;', '').gsub(/<div>/,'').gsub(/<\/div>/,'').gsub(/ ?/,'').gsub(/\n/,'').gsub(/\t/,'').gsub(/<p> <\/p>/,'').truncate(200)) %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %></div>

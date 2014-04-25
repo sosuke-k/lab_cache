@@ -6,6 +6,8 @@ gem 'jazz_hands'
 gem 'nokogiri'
 gem 'fastimage'
 gem 'ruby-filemagic'
+gem 'ruby-readability'
+gem 'railroady'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -15,6 +17,7 @@ gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
+gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -33,6 +36,14 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+group :development do
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
