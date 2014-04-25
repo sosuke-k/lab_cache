@@ -65,26 +65,30 @@ class ItemsController < ApplicationController
         })
     end
 
-    @item = Item.new({
-      title: title,
-      url: params[:url],
-      content: content_html,
-      first_image_url: images[0],
-      user_id: User.find_by(twitter_id: twitter_id).id
-    })
+    if ( Item.find_by(title: title) ) # 既に読まれていた場合
+      # user を reader に追加
+    else
+      @item = Item.new({
+        title: title,
+        url: params[:url],
+        content: content_html,
+        first_image_url: images[0],
+        user_id: User.find_by(twitter_id: twitter_id).id
+      })
 
-    respond_to do |format|
-      if @item.save
-        format.json {
-          render json: {
-            action: 'add',
-            result: 'success',
-            content_html: re_arrange(content_html),
-            first_image_url: @item.first_image_url
+      respond_to do |format|
+        if @item.save
+          format.json {
+            render json: {
+              action: 'add',
+              result: 'success',
+              content_html: re_arrange(content_html),
+              first_image_url: @item.first_image_url
+            }
           }
-        }
-      else
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        else
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
