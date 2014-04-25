@@ -58,15 +58,15 @@ class ItemsController < ApplicationController
     image_url = params[:user][:quiche_twitter_image_url]
 
 
-    if ( User.find_by(twitter_id: twitter_id) == nil )
-      User.create({
+    if ( ( user = User.find_by(twitter_id: twitter_id) ) == nil )
+      user = User.create({
         twitter_id: twitter_id,
         image_url: image_url
         })
     end
 
-    if ( Item.find_by(title: title) ) # 既に読まれていた場合
-      # user を reader に追加
+    if ( item = Item.find_by(title: title) ) # 既に読まれていた場合
+      # binding.pry
     else
       @item = Item.new({
         title: title,
@@ -91,6 +91,7 @@ class ItemsController < ApplicationController
         end
       end
     end
+    Reader.create({user: user, item: item}) # user を reader に追加
   end
 
   # PATCH/PUT /items/1
