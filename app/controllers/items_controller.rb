@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
     content_html = obj.content.encode('UTF-8')
     images = obj.images
 
+    # TODO Avoid using direct link
     if  ( (images[0] =~ /^\//) == 0) # relative path
       images[0] = 'http://' + uri.host + images[0]
     elsif ( (images[0] =~ /^http/) != 0) # filename only
