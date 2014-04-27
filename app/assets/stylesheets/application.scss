@@ -146,6 +146,16 @@ body {
           line-height: 20px;
           word-break: break-all;
         }
+        .new_comment{
+          textarea{
+            width:24%;
+          }
+        }
+        .comments{
+          height: 100px;
+          overflow: scroll;
+          line-height: 30px
+        }
       }
     }
   }
