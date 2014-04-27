@@ -146,15 +146,22 @@ body {
           line-height: 20px;
           word-break: break-all;
         }
-        .new_comment{
-          textarea{
+        .new_comment {
+          textarea {
             width:24%;
           }
         }
-        .comments{
+        .comments {
           height: 100px;
           overflow: scroll;
-          line-height: 30px
+          img {
+            line-height: 25px;
+            vertical-align: middle;
+          }
+          .comment {
+            font-size: 14px;
+            line-height: 28px;
+          }
         }
       }
     }

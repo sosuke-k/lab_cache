@@ -34,11 +34,13 @@
           <h3>Comments</h3>
           <% item.comments.each do |comment| %>
           <p>
-          <span class='user_icon'>
-            <%= image_tag comment.user.image_url, size: '25' %>
-          </span>
-            <%= comment.content + ' ' + time_ago_in_words(comment.created_at) + ' ago' %>
-            </p>
+            <span class='user_icon'>
+              <%= image_tag comment.user.image_url, size: '25' %>
+            </span>
+            <span class='comment'>
+              <%= comment.content + ' ' + time_ago_in_words(comment.created_at) + ' ago' %>
+            </span>
+          </p>
           <% end %>
         </div>
       </div>
