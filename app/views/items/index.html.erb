@@ -18,11 +18,22 @@
         <div class='content'>
           <p> <%= raw (re_arrange item.content) %> </p>
           reader:
-          <% item.reader.each do |reader| %>
+          <% item.readers.each do |reader| %>
           <span class="user_icon"><%= image_tag reader.user.image_url, size: '30' %></span>
           <% end %>
         </div>
+        <%= form_for(@comment = User.first.comments.build) do |f| %>
+          <%= f.hidden_field :item_id, value: item.id %>
+          <div class="field">
+            <%= f.text_area :content, placeholder: "コメント書きやがれください..." %>
+          </div>
+          <%= f.submit "Post", class: "btn btn-2i" %>
+          <% @comment.item_id = item.id %>
+        <% end %>
+        <% item.comments.each do |comment| %>
+          <p><%= comment.content %></p>
+        <% end %>
       </div>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>

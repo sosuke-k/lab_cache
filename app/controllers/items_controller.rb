@@ -44,7 +44,18 @@ class ItemsController < ApplicationController
     end
 
     if ( item = Item.find_by(title: title) ) # 既に読まれていた場合
-      # binding.pry
+      respond_to do |format|
+        if Reader.create({user: user, item: item}) # user を reader に追加
+          format.json {
+            render json: {
+              action: 'add',
+              result: 'already_posted',
+            }
+          }
+        else
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+        end
+      end
     else
       @item = Item.new({
         title: title,
@@ -60,8 +71,6 @@ class ItemsController < ApplicationController
             render json: {
               action: 'add',
               result: 'success',
-              content_html: re_arrange(content_html),
-              first_image_url: @item.first_image_url
             }
           }
         else
@@ -69,7 +78,6 @@ class ItemsController < ApplicationController
         end
       end
     end
-    Reader.create({user: user, item: item}) # user を reader に追加
   end
 
   def update

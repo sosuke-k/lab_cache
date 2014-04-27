@@ -1,4 +1,6 @@
 LabCache::Application.routes.draw do
+  resources :comments
+
   resources :items
   post 'item/create' => 'items#create'
 
