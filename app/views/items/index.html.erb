@@ -16,7 +16,7 @@
         <h3><span class='truncate'><%= link_to item.title.truncate(80), (extract_url item.url) %></span></h3>
         <p class='thumbnail'><%= image_tag item.first_image_url, width: '100%' %></p>
         <div class='content'>
-          <p> <%= raw (re_arrange item.content) %> </p>
+          <p> <%= raw (re_arrange item.content) %> </p> <br>
           <span class='reader'>reader:</span>
           <% item.readers.each do |reader| %>
           <span class='user_icon'><%= image_tag reader.user.image_url, size: '30' %></span>

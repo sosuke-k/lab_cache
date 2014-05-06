@@ -37,24 +37,10 @@ class ItemsController < ApplicationController
     image_url = params[:user][:quiche_twitter_image_url]
 
     if ( ( user = User.find_by(twitter_id: twitter_id) ) == nil )
-      user = User.create({
-        twitter_id: twitter_id,
-        image_url: image_url
-        })
-    end
-
-    if ( item = Item.find_by(title: title) ) # 既に読まれていた場合
-      respond_to do |format|
-        if Reader.create({user: user, item: item}) # user を reader に追加
-          format.json {
-            render json: {
-              action: 'add',
-              result: 'already_posted',
-            }
-          }
-        else
-          format.json { render json: @item.errors, status: :unprocessable_entity }
-        end
+      message = 'Create user in "Oven" before Baking!' # chrome extention で表示
+    elsif ( item = Item.find_by(title: title) ) # 既に読まれていた場合
+      if Reader.create({user: user, item: item}) # user を reader に追加
+        message = 'Your Quiche has also baked!'
       end
     else
       @item = Item.new({
@@ -63,20 +49,20 @@ class ItemsController < ApplicationController
         content: content_html,
         first_image_url: images[0],
         user_id: User.find_by(twitter_id: twitter_id).id
-      })
-
-      respond_to do |format|
-        if @item.save
-          format.json {
-            render json: {
-              action: 'add',
-              result: 'success',
-            }
-          }
-        else
-          format.json { render json: @item.errors, status: :unprocessable_entity }
-        end
+        })
+      if @item.save
+        message = 'success'
+      else
+        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
+    end
+    respond_to do |format|
+      format.json {
+        render json: {
+          action: 'add',
+          result: message,
+        }
+      }
     end
   end
 
