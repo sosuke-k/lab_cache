@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ENV.update YAML.load_file('config/settings.yml')[Rails.env] rescue {}
 
 module LabCache
   class Application < Rails::Application
