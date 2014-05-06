@@ -22,8 +22,37 @@
         <h3><span class='truncate'><%= link_to item.title.truncate(80), (extract_url item.url) %></span></h3>
         <p class='thumbnail'><%= image_tag item.first_image_url, width: '100%' %></p>
         <div class='content'>
-          <p> <%= raw (item.content.gsub('&#13;', '').gsub(/<div>/,'').gsub(/<\/div>/,'').gsub(/ ?/,'').gsub(/\n/,'').gsub(/\t/,'').gsub(/<p> <\/p>/,'').truncate(200)) %> </p>
+          <p> <%= raw (re_arrange item.content) %> </p> <br>
+          <span class='reader'>reader:</span>
+          <% item.readers.each do |reader| %>
+          <span class='user_icon'><%= image_tag reader.user.image_url, size: '30' %></span>
+          <% end %>
+        </div>
+<!--        <%= form_for(@comment = User.first.comments.build) do |f| %>
+          <%= f.hidden_field :item_id, value: item.id %>
+          <div class='field'>
+            <%= f.text_area :content, placeholder: 'コメント書きやがれください...' %>
+          </div>
+          <%= f.submit 'Post', class: '' %>
+          <% @comment.item_id = item.id %>
+        <% end %> -->
+        <!-- <div class='comment_button'> -->
+          <a href='#' class='comment_button'>Comments <%= '('+item.comments.length.to_s+')' %></a>
+        <!-- </div> -->
+        <div class='comments'>
+          <h3>Comments</h3>
+          <% item.comments.each do |comment| %>
+          <p>
+            <span class='user_icon'>
+              <%= image_tag comment.user.image_url, size: '25' %>
+            </span>
+            <span class='comment'>
+              <%= comment.content + ' ' + time_ago_in_words(comment.created_at) + ' ago' %>
+            </span>
+          </p>
+          <% end %>
         </div>
       </div>
     </div>
-  <% end %></div>
+    <% end %>
+  </div>

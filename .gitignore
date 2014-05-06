@@ -23,3 +23,8 @@
 /config/database.yml
 /db/schema.rb
 /db/seeds.rb
+
+
+
+config/settings.yml
+

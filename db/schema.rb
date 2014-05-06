@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406101421) do
+ActiveRecord::Schema.define(version: 20140505235611) do
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", force: true do |t|
     t.string   "title"
@@ -27,6 +35,13 @@ ActiveRecord::Schema.define(version: 20140406101421) do
 
   add_index "items", ["user_id"], name: "index_items_on_user_id"
 
+  create_table "readers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "last_name"
     t.string   "image_url"
@@ -34,6 +49,9 @@ ActiveRecord::Schema.define(version: 20140406101421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "twitter_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
   end
 
 end
