@@ -206,4 +206,12 @@ body {
   .truncate {
     word-break: break-all;
   }
+  .login_button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    a {
+      color: rgb(13, 177, 211);
+    }
+  }
 }
