@@ -3,7 +3,10 @@ class ItemsController < ApplicationController
 
   include ApplicationHelper
   def index
-    @items = Item.all
+    result = Item.search do
+      fulltext params[:query]
+    end
+    @items = result.results
   end
 
   def show

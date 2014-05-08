@@ -1,5 +1,11 @@
 <nav class='top-bar' data-topbar>
-  <h1>Quiche</h1>
+  <header>
+    <h1>Quiche</h1>
+    <form action='/items'method='get'>
+      <input id='search_text' name='query' type='text'></input>
+      <input id='search_button' type='image' src='svg/search.svg'></input>
+    </form>
+  </header>
 </nav>
 <div class='contents'>
   <% @items.each do |item| %>
@@ -22,14 +28,14 @@
           <span class='user_icon'><%= image_tag reader.user.image_url, size: '30' %></span>
           <% end %>
         </div>
-<!--        <%= form_for(@comment = User.first.comments.build) do |f| %>
-          <%= f.hidden_field :item_id, value: item.id %>
+<!--        <%#= form_for(@comment = User.first.comments.build) do |f| %>
+          <%#= f.hidden_field :item_id, value: item.id %>
           <div class='field'>
-            <%= f.text_area :content, placeholder: 'コメント書きやがれください...' %>
+            <%#= f.text_area :content, placeholder: 'コメント書きやがれください...' %>
           </div>
-          <%= f.submit 'Post', class: '' %>
-          <% @comment.item_id = item.id %>
-        <% end %> -->
+          <%#= f.submit 'Post', class: '' %>
+          <%# @comment.item_id = item.id %>
+        <%# end %> -->
         <!-- <div class='comment_button'> -->
           <a href='#' class='comment_button'>Comments <%= '('+item.comments.length.to_s+')' %></a>
         <!-- </div> -->

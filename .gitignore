@@ -15,4 +15,15 @@
 /log/*.log
 /tmp
 
+# Ignore all sunspot files.
+/solr
+/config/sunspot.yml
+sunspot-solr.pid
+
+# Ignore database settings
+# /config/database.yml
+
+
+
 config/settings.yml
+
