@@ -17,7 +17,6 @@ gem 'railroady'
 gem 'rails', '4.0.4'
 
 gem 'mysql2'
-gem 'sqlite3'
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'compass-rails'
