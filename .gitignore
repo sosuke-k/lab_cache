@@ -21,7 +21,6 @@
 
 # Ignore database settings
 # /config/database.yml
-/db/schema.rb
 
 
 
