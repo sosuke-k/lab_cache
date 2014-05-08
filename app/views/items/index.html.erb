@@ -15,7 +15,7 @@
         <p class='time'> <%= item.created_at.strftime('%H:%M') %> </p>
       </div>
       <div class='columns column_left'>
-        <p class='user_icon'><%#= image_tag item.user.image_url, size: '30' %></p>
+        <p class='user_icon'><%= image_tag item.user.image_url, size: '30' %></p>
         <!-- <%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %> -->
       </div>
       <div class='columns column_right'>
@@ -28,14 +28,14 @@
           <span class='user_icon'><%= image_tag reader.user.image_url, size: '30' %></span>
           <% end %>
         </div>
-<!--        <%= form_for(@comment = User.first.comments.build) do |f| %>
-          <%= f.hidden_field :item_id, value: item.id %>
+<!--        <%#= form_for(@comment = User.first.comments.build) do |f| %>
+          <%#= f.hidden_field :item_id, value: item.id %>
           <div class='field'>
-            <%= f.text_area :content, placeholder: 'コメント書きやがれください...' %>
+            <%#= f.text_area :content, placeholder: 'コメント書きやがれください...' %>
           </div>
-          <%= f.submit 'Post', class: '' %>
-          <% @comment.item_id = item.id %>
-        <% end %> -->
+          <%#= f.submit 'Post', class: '' %>
+          <%# @comment.item_id = item.id %>
+        <%# end %> -->
         <!-- <div class='comment_button'> -->
           <a href='#' class='comment_button'>Comments <%= '('+item.comments.length.to_s+')' %></a>
         <!-- </div> -->

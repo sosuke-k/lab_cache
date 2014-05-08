@@ -18,7 +18,7 @@ Things you may want to cover:
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
- * Solr (need JavaRuntime)
+** Solr (need JavaRuntime)
     rails generate sunspot_rails:install
     rake sunspot:solr:start
     rake sunspot:solr:reindex
