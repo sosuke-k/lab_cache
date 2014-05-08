@@ -20,9 +20,8 @@
 /config/sunspot.yml
 
 # Ignore database settings
-/config/database.yml
+# /config/database.yml
 /db/schema.rb
-/db/seeds.rb
 
 
 
