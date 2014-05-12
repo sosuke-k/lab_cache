@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     result = Item.search do
       fulltext params[:query]
     end
-    @items = result.results
+    @items = result.results.sort_by{'created_at'}.reverse
   end
 
   def show

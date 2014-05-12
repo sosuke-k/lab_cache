@@ -26,4 +26,5 @@ sunspot-solr.pid
 
 
 config/settings.yml
+config/database.yml
 
