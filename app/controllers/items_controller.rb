@@ -55,6 +55,7 @@ class ItemsController < ApplicationController
         })
       if @item.save
         message = 'success'
+        tweet('['+title.truncate(130)+'] が焼けたよ')
       else
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
@@ -96,5 +97,21 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:title, :first_image_url, :user_id, :name, :content, :deleted_at)
+    end
+
+    def tweet(tweet_content)
+        require 'twitter'
+        client = Twitter::REST::Client.new do |config|
+          config.consumer_key       = ENV['consumer_key']
+          config.consumer_secret    = ENV['consumer_secret']
+          config.access_token        = ENV['oauth_token']
+          config.access_token_secret = ENV['oauth_token_secret']
+        end
+        tweet_content = (tweet_content.length > 140) ? tweet_content[0..139].to_s : tweet_content
+      begin
+        client.update(tweet_content)
+      rescue Exception => e
+        p e
+      end
     end
 end

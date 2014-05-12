@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'omniauth-twitter'
+gem 'twitter'
 
 group :development do
   gem 'better_errors'
