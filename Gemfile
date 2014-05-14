@@ -32,6 +32,7 @@ gem 'seed_dump'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'sqlite3'
 end
 
 group :doc do
