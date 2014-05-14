@@ -9,6 +9,7 @@ class Item < ActiveRecord::Base
   searchable do
     text :title
     text :content
+    time :created_at
   end
 
 end

@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
   def index
     result = Item.search do
       fulltext params[:query]
+      order_by :created_at, :desc
     end
-    @items = result.results.to_a.sort{|a, b| a[:created_at] <=> b[:created_at]}.reverse
+    @items = result.results
   end
 
   def show
