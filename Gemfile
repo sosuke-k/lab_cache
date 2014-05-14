@@ -27,10 +27,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'seed_dump'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'sqlite3'
 end
 
 group :doc do
