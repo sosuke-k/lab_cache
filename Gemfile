@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'seed_dump'
+gem 'hirb'
+gem 'hirb-unicode'
 
 group :development do
   gem 'better_errors'

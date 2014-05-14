@@ -80,6 +80,9 @@ GEM
     highline (1.6.21)
     hike (1.2.3)
     hirb (0.7.1)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     http (0.5.0)
       http_parser.rb
     http_parser.rb (0.6.0)
@@ -239,6 +242,7 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode-display_width (0.1.1)
     yard (0.8.7.4)
 
 PLATFORMS
@@ -250,6 +254,8 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   compass-rails
   fastimage
+  hirb
+  hirb-unicode
   jazz_hands
   jbuilder (~> 1.2)
   jquery-rails
