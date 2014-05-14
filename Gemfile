@@ -27,6 +27,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'seed_dump'
 
 group :development do
   gem 'better_errors'

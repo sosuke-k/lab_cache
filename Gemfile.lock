@@ -192,6 +192,9 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    seed_dump (3.1.0)
+      activerecord
+      activesupport
     simple_oauth (0.2.0)
     slop (3.5.0)
     spring (1.1.2)
@@ -260,6 +263,7 @@ DEPENDENCIES
   ruby-readability
   sass-rails (~> 4.0.2)
   sdoc
+  seed_dump
   spring
   sunspot (= 2.1.0)
   sunspot_rails (= 2.1.0)
