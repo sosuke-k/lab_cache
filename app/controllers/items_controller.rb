@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     result = Item.search do
       fulltext params[:query]
       order_by :created_at, :desc
+      Sunspot.config.pagination.default_per_page = 50
     end
     @items = result.results
   end
