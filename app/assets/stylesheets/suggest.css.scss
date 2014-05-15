@@ -1,0 +1,20 @@
+#suggest {
+    position: absolute;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCFF;
+    font-size: 90%;
+    width: 200px;
+    div {
+        display: block;
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    div.select {
+        color: #FFFFFF;
+        background-color: #3366FF;
+    }
+    div.over {
+        background-color: #99CCFF;
+    }
+}
