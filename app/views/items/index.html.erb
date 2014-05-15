@@ -28,30 +28,32 @@
           <span class='user_icon'><%= image_tag reader.user.image_url, size: '30' %></span>
           <% end %>
         </div>
-<!--        <%#= form_for(@comment = User.first.comments.build) do |f| %>
-          <%#= f.hidden_field :item_id, value: item.id %>
-          <div class='field'>
-            <%#= f.text_area :content, placeholder: 'コメント書きやがれください...' %>
-          </div>
-          <%#= f.submit 'Post', class: '' %>
-          <%# @comment.item_id = item.id %>
-        <%# end %> -->
-        <!-- <div class='comment_button'> -->
-          <a href='#' class='comment_button'>Comments <%= '('+item.comments.length.to_s+')' %></a>
-        <!-- </div> -->
-        <div class='comments'>
-          <h3>Comments</h3>
-          <% item.comments.each do |comment| %>
-          <p>
-            <span class='user_icon'>
-              <%= image_tag comment.user.image_url, size: '25' %>
-            </span>
-            <span class='comment'>
-              <%= comment.content + ' ' + time_ago_in_words(comment.created_at) + ' ago' %>
-            </span>
-          </p>
+        <div class='modal comment_modal' id='comment_form_<%= item.id %>'>
+          <%= form_for(@comment = current_user.comments.build) do |f| %>
+            <%= f.hidden_field :item_id, value: item.id %>
+            <div class='field'>
+              <%= f.text_area :content, placeholder: 'コメント書きやがれください' %>
+            </div>
+            <%= f.submit 'Post', class: '' %>
+            <% @comment.item_id = item.id %>
           <% end %>
+          <div class='comments'>
+            <% item.comments.each do |comment| %>
+            <p>
+              <span class='user_icon'>
+                <%= image_tag comment.user.image_url, size: '25' %>
+              </span>
+              <span class='comment'>
+                <%= comment.content  %>
+                <span class='comment_date'>
+                  <%= time_ago_in_words(comment.created_at) + ' ago' %>
+                </span>
+              </span>
+            </p>
+            <% end %>
+          </div>
         </div>
+        <a href='#' id='comment_button_<%= item.id %>' class='comment_button'><%= fa_icon 'comments-o' %> <%= '('+item.comments.length.to_s+')' %> </a>
       </div>
     </div>
     <% end %>
