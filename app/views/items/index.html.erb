@@ -29,13 +29,15 @@
           <% end %>
         </div>
         <div class='modal comment_modal' id='comment_form_<%= item.id %>'>
-          <%= form_for(@comment = current_user.comments.build) do |f| %>
-            <%= f.hidden_field :item_id, value: item.id %>
-            <div class='field'>
-              <%= f.text_area :content, placeholder: 'コメント書きやがれください' %>
-            </div>
-            <%= f.submit 'Post', class: '' %>
-            <% @comment.item_id = item.id %>
+          <% unless current_user.nil? %>
+            <%= form_for(@comment = current_user.comments.build) do |f| %>
+              <%= f.hidden_field :item_id, value: item.id %>
+              <div class='field'>
+                <%= f.text_area :content, placeholder: 'コメント書きやがれください' %>
+              </div>
+              <%= f.submit 'Post', class: '' %>
+              <% @comment.item_id = item.id %>
+            <% end %>
           <% end %>
           <div class='comments'>
             <% item.comments.each do |comment| %>
