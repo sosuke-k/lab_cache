@@ -143,20 +143,9 @@ body {
         float: right;
         width: 80%;
         margin-top: 3px;
+        height: 190px;
+        position: relative;
         h3 {
-          .delete_button {
-            a {
-              color: #ccd;
-              i {
-                border: 1px solid;
-                border-radius: 50%;
-                padding: 2px 2px 2px 4px;
-                &:hover {
-                  background: #333;
-                }
-              }
-            }
-          }
           font-size: 20px;
           white-space: nowrap;
           overflow: hidden;
@@ -214,21 +203,39 @@ body {
             width: 100%;
           }
         }
-        a.comment_button {
-          float: right;
+        .buttons {
+          bottom: 10px;
+          right: 10px;
           position: absolute;
-          padding: 0 6px;
-          margin: 120px 0px;
-          background: #8DDFF0;
-          border-radius: 10px;
-          line-height: 28px;
-          color: #fff;
-          text-decoration: none;
-          text-align: center;
-          white-space: nowrap;
-          font-size: 16px;
-          i {
-            font-size: 22px;
+          .delete_button {
+            a {
+              color: #ccd;
+              i {
+                border: 1px solid;
+                border-radius: 50%;
+                padding: 3px 4px 2px 5px;
+                &:hover {
+                  background: #333;
+                }
+              }
+            }
+          }
+          a.comment_button {
+            padding: 0 6px;
+            background: #8DDFF0;
+            border-radius: 10px;
+            line-height: 28px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            white-space: nowrap;
+            font-size: 16px;
+            i {
+              font-size: 20px;
+            }
+            &:hover {
+              background: #5FD0E7;
+            }
           }
         }
         .comment_modal {

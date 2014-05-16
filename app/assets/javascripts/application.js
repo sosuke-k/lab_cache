@@ -17,6 +17,6 @@
 $(window).load(function() {
   $('.comment_button').click(function() {
     event.preventDefault();
-    $(this).parent().children('.modal').modal()
+    $(this).parent().parent().children('.modal').modal()
   })
 })
