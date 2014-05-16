@@ -215,10 +215,46 @@ body {
           }
         }
         .comment_modal {
+          height: 400px;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          .field {
+            width: 85%;
+            float: left;
+            textarea {
+              border: 1px solid #660;
+              outline: none;
+            }
+          }
+          input {
+            float: right;
+            border-radius: 50%;
+            color: #fff;
+            background: #0DB1D3;
+            border: none;
+            outline: none;
+            width: 45px;
+            height: 45px;
+            &:hover {
+              background: #63C6F8;
+            }
+          }
           .comments {
-            overflow: scroll;
-            img {
-              line-height: 25px;
+            clear: both;
+            p { margin-bottom: 5px}
+            .user_icon {
+              img {
+                line-height: 25px;
+                border: 1px solid #660;
+                padding: 3px;
+              }
+              &:after {
+                content: '';
+                position: absolute;
+                margin: -6px -21px;
+                border-top: 7px solid #660;
+                width: 1px;
+              }
             }
             .comment_date {
               background: #cc0;
@@ -226,6 +262,7 @@ body {
               border-radius: 3px;
               padding: 1px 4px;
               font-size: 12px;
+              white-space: nowrap;
             }
             .comment {
               font-size: 14px;
