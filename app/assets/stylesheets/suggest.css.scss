@@ -3,12 +3,13 @@
     background-color: #FFFFFF;
     border: 1px solid #CCCCFF;
     font-size: 90%;
-    width: 200px;
+    width: 218px;
     div {
         display: block;
-        width: 200px;
+        width: 218px;
         overflow: hidden;
         white-space: nowrap;
+        padding: 2px 4px;
     }
     div.select {
         color: #FFFFFF;
