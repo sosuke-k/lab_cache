@@ -31,10 +31,12 @@ class ItemsController < ApplicationController
     images = obj.images
 
     # TODO Avoid using direct link
-    if  ( (images[0] =~ /^\//) == 0) # relative path
-      images[0] = 'http://' + uri.host + images[0]
-    elsif ( (images[0] =~ /^http/) != 0) # filename only
-      images[0] = 'http://' + uri.host + uri.path + images[0]
+    unless images.empty?
+      if  ( (images[0] =~ /^\//) == 0) # relative path
+        images[0] = 'http://' + uri.host + images[0]
+      elsif ( (images[0] =~ /^http/) != 0) # filename only
+        images[0] = 'http://' + uri.host + uri.path + images[0]
+      end
     end
 
     twitter_id = params[:user][:quiche_twitter_id]
