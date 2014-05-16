@@ -24,7 +24,8 @@
   src: url(http://l0o0l.info/material/fonts/mplus-1c-light.ttf) format('opentype');
  }
 
- $user_color: #660;
+$user_color: #660;
+$link_color: rgb(13, 177, 211);
 
 *, a, .date, h3 {
   font-family: 'mplus-1c-light';
@@ -131,7 +132,7 @@ body {
         }
         .user_icon {
           margin: -4px;
-          img{
+          img {
             border: 1px solid $user_color;
             padding: 3px;
             background: #fff;
@@ -143,16 +144,32 @@ body {
         width: 80%;
         margin-top: 3px;
         h3 {
+          .delete_button {
+            a {
+              color: #ccd;
+              i {
+                border: 1px solid;
+                border-radius: 50%;
+                padding: 2px 2px 2px 4px;
+                &:hover {
+                  background: #333;
+                }
+              }
+            }
+          }
           font-size: 20px;
           white-space: nowrap;
           overflow: hidden;
           a {
-            color: rgb(13, 177, 211);
+            color: $link_color;
             font-size: 20px;
             text-align: center;
             border-radius: 10px;
             letter-spacing: 2px;
             text-decoration: none;
+            &:hover {
+              text-decoration: underline
+            };
           }
         }
         .thumbnail {
@@ -244,7 +261,7 @@ body {
     bottom: 30px;
     right: 30px;
     a {
-      color: rgb(13, 177, 211);
+      color: $link_color;
     }
   }
 }
