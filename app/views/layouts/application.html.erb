@@ -16,6 +16,7 @@
     <%= yield %>
 
     <div class='login_button'>
+      <%= flash.notice %>
       <% if current_user %>
         Welcome @<%= current_user.twitter_id %>!
         <%= link_to 'Sign Out', signout_path %>
