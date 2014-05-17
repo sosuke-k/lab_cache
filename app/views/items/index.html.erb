@@ -6,15 +6,10 @@
       <input id='search_button' type='image' src='svg/search.svg'></input>
       <div id='suggest' style='display:none;'></div>
       <script>
-        (function() {
-          new Suggest.Local(
-            'search_text',    // 入力のエレメントID
-            'suggest', // 補完候補を表示するエリアのID
-            [<% User.all.each do |user| %>
-              '<%= user.twitter_id %>',
-            <% end %>],      // 補完候補の検索対象となる配列
-            {dispMax: 10, interval: 1000}); // オプション
-        })();
+        initSuggest(
+          [<% User.all.each do |user| %>
+            '<%= user.twitter_id %>',
+          <% end %>]);
       </script>
     </form>
   </header>
