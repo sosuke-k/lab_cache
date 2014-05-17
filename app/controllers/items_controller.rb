@@ -29,9 +29,9 @@ class ItemsController < ApplicationController
 
     title = obj.title
     content_html = obj.content.encode('UTF-8')
+    images = obj.images
 
     # TODO Avoid using direct link
-    images = []
     unless images.empty?
       if  ( (images[0] =~ /^\//) == 0) # relative path
         images[0] = 'http://' + uri.host + images[0]
