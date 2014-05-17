@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
     if reborns_twitter_id_array.include?(auth.info.nickname)
-      user = User.find_by_provider_and_uid(auth['provider'], auth['uid']) || User.create_with_omniauth(auth)
+      user = User.find_by({twitter_id: auth.info.nickname}) || User.create_with_omniauth(auth)
       session[:user_id] = user.id
       redirect_to root_url, notice: 'Signed in!'
     else
