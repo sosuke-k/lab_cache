@@ -20,11 +20,6 @@
 /config/sunspot.yml
 sunspot-solr.pid
 
-# Ignore database settings
-# /config/database.yml
-
-
-
 config/settings.yml
 config/database.yml
 
