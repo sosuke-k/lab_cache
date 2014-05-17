@@ -20,3 +20,11 @@ $(window).load(function() {
     $(this).parent().parent().children('.modal').modal()
   })
 })
+
+function initSuggest(list) {
+  new Suggest.Local(
+    'search_text',    // 入力のエレメントID
+    'suggest', // 補完候補を表示するエリアのID
+    list,      // 補完候補の検索対象となる配列
+    {dispMax: 10, interval: 1000}); // オプション
+}

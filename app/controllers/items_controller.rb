@@ -3,8 +3,13 @@ class ItemsController < ApplicationController
 
   include ApplicationHelper
   def index
+    user = User.where("last_name = ? or twitter_id = ?", params[:query], params[:query])
     result = Item.search do
-      fulltext params[:query]
+      if (user.blank?)
+        fulltext params[:query]
+      else
+        with(:user_id, user.first.id)
+      end
       order_by :created_at, :desc
       Sunspot.config.pagination.default_per_page = 50
     end

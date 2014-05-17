@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
     text :title
     text :content
     time :created_at
+    integer :user_id
   end
 
 end
