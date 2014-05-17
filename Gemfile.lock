@@ -86,6 +86,7 @@ GEM
       http_parser.rb
     http_parser.rb (0.6.0)
     i18n (0.6.9)
+    imgkit (1.4.1)
     jazz_hands (0.5.2)
       awesome_print (~> 1.2)
       coolline (>= 0.4.2)
@@ -252,6 +253,7 @@ DEPENDENCIES
   compass-rails
   fastimage
   font-awesome-rails
+  imgkit
   jazz_hands
   jbuilder (~> 1.2)
   jquery-rails

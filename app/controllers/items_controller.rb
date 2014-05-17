@@ -43,6 +43,8 @@ class ItemsController < ApplicationController
       elsif ( (images[0] =~ /^http/) != 0) # filename only
         images[0] = 'http://' + uri.host + uri.path + images[0]
       end
+    else
+      screen_shot_binary = IMGKit.new(params[:url], width: 144).to_img(:jpg)
     end
 
     twitter_id = params[:user][:quiche_twitter_id]
@@ -60,6 +62,7 @@ class ItemsController < ApplicationController
         url: params[:url],
         content: content_html,
         first_image_url: images[0],
+        screen_shot: screen_shot_binary,
         user_id: User.find_by(twitter_id: twitter_id).id
         })
       if @item.save
@@ -97,6 +100,10 @@ class ItemsController < ApplicationController
       format.html { redirect_to '/' }
       format.json { head :no_content }
     end
+  end
+
+  def get_image
+    send_data(Item.find(params[:id]).screen_shot, filename: "#{Item.find(params[:id])}.jpg", :disposition => 'inline' , type: 'image/jpeg')
   end
 
   private

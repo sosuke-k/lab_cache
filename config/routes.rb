@@ -1,10 +1,12 @@
 LabCache::Application.routes.draw do
   resources :comments
 
-  resources :items
+  resources :items do
+    member { get :get_image }
+  end
+  root 'items#index'
   post 'item/create' => 'items#create'
 
-  root 'items#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', as: :signout
 

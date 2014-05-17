@@ -28,6 +28,7 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'seed_dump'
 gem 'font-awesome-rails'
+gem 'imgkit'
 
 group :development do
   gem 'better_errors'

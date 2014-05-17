@@ -26,7 +26,13 @@
       </div>
       <div class='columns column_right'>
         <h3><span class='truncate'><%= link_to item.title.truncate(80), (extract_url item.url) %></span></h3>
-        <p class='thumbnail'><%= image_tag item.first_image_url, width: '100%' %></p>
+        <p class='thumbnail'>
+          <% if !item.first_image_url.nil?  %>
+            <%= image_tag item.first_image_url, width: '100%' %>
+          <% elsif !item.screen_shot.nil? %>
+            <%= image_tag(get_image_item_path(item, format: 'jpg'), width: '100%') %>
+          <% end %>
+        </p>
         <div class='content'>
           <p> <%= raw (re_arrange item.content) %> </p> <br>
           <span class='reader'>reader:</span>
