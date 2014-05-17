@@ -8,12 +8,14 @@ class ItemsController < ApplicationController
       result = Item.search do
         fulltext params[:query]
         order_by :created_at, :desc
+        Sunspot.config.pagination.default_per_page = 50
       end
       @items = result.results
     else
       result = Item.search do
         with(:user_id, user.first.id)
         order_by :created_at, :desc
+        Sunspot.config.pagination.default_per_page = 50
       end
       @items = result.results
     end
@@ -37,13 +39,15 @@ class ItemsController < ApplicationController
 
     title = obj.title
     content_html = obj.content.encode('UTF-8')
-    images = obj.images
 
     # TODO Avoid using direct link
-    if  ( (images[0] =~ /^\//) == 0) # relative path
-      images[0] = 'http://' + uri.host + images[0]
-    elsif ( (images[0] =~ /^http/) != 0) # filename only
-      images[0] = 'http://' + uri.host + uri.path + images[0]
+    images = []
+    unless images.empty?
+      if  ( (images[0] =~ /^\//) == 0) # relative path
+        images[0] = 'http://' + uri.host + images[0]
+      elsif ( (images[0] =~ /^http/) != 0) # filename only
+        images[0] = 'http://' + uri.host + uri.path + images[0]
+      end
     end
 
     twitter_id = params[:user][:quiche_twitter_id]
@@ -95,7 +99,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to '/' }
       format.json { head :no_content }
     end
   end

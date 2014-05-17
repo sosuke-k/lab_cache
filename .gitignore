@@ -13,17 +13,13 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/*.log.*
 /tmp
 
 # Ignore all sunspot files.
 /solr
 /config/sunspot.yml
 sunspot-solr.pid
-
-# Ignore database settings
-# /config/database.yml
-
-
 
 config/settings.yml
 config/database.yml

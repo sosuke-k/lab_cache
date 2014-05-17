@@ -23,7 +23,6 @@
       </div>
       <div class='columns column_left'>
         <p class='user_icon'><%= image_tag item.user.image_url, size: '30' %></p>
-        <!-- <%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %> -->
       </div>
       <div class='columns column_right'>
         <h3><span class='truncate'><%= link_to item.title.truncate(80), (extract_url item.url) %></span></h3>
@@ -62,7 +61,14 @@
             <% end %>
           </div>
         </div>
-        <a href='#' id='comment_button_<%= item.id %>' class='comment_button'><%= fa_icon 'comments-o' %> <%= '('+item.comments.length.to_s+')' %> </a>
+        <div class='buttons'>
+          <% if item.user == current_user %>
+            <span class='delete_button'>
+              <%= link_to (fa_icon 'trash-o'), item, confirm: '本当に消してしまうん？', method: :delete %>
+            </span>
+          <% end %>
+          <a href='#' id='comment_button_<%= item.id %>' class='comment_button'><%= fa_icon 'comments-o' %> <%= '('+item.comments.length.to_s+')' %></a>
+        </div>
       </div>
     </div>
     <% end %>
