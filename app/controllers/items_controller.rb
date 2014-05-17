@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
         images[0] = 'http://' + uri.host + uri.path + images[0]
       end
     else
-      screen_shot_binary = IMGKit.new(params[:url], width: 500).to_img(:jpg)
+      screen_shot_binary = IMGKit.new(params[:url], width: 144).to_img(:jpg)
     end
 
     twitter_id = params[:user][:quiche_twitter_id]
