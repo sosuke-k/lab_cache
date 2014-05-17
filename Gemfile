@@ -27,8 +27,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'seed_dump'
-gem 'hirb'
-gem 'hirb-unicode'
 gem 'font-awesome-rails'
 
 group :development do
