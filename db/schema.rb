@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516130026) do
+ActiveRecord::Schema.define(version: 20140517235730) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20140516130026) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "url"
-    t.binary   "screen_shot"
+    t.binary   "screen_shot",     limit: 16777215
   end
 
-  add_index "items", ["user_id"], name: "index_items_on_user_id"
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
   create_table "readers", force: true do |t|
     t.integer  "user_id"
