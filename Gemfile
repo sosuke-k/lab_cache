@@ -29,6 +29,7 @@ gem 'twitter'
 gem 'seed_dump'
 gem 'font-awesome-rails'
 gem 'imgkit'
+gem 'bitly'
 
 group :development do
   gem 'better_errors'
